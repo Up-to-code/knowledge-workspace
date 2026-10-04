@@ -1,0 +1,3 @@
+import { defineAgent,defineDynamic } from 'eve';
+import { resolveFreeModel } from '../src/lib/free-models';
+export default defineAgent({defaultTools:false,build:{externalDependencies:['playwright','pg']},model:defineDynamic({events:{'step.started':async (_event,ctx)=>{const explicit=typeof ctx.session.auth.current?.attributes.model==='string'?ctx.session.auth.current.attributes.model:undefined;const role=ctx.messages.some(message=>message.role==='tool')?process.env.WRITER_MODEL||process.env.AGENT_MODEL:process.env.AGENT_MODEL;return {model:await resolveFreeModel(explicit||role,true),modelContextWindowTokens:16000}}}}),limits:{maxInputTokensPerSession:100000,maxOutputTokensPerSession:12000}});

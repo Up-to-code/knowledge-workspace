@@ -1,0 +1,16 @@
+node_modules/
+.next/
+.output/
+.eve/
+.env*
+!.env.example
+.neon
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+certificates/
+
+work/
+.DS_Store
+*.log

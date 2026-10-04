@@ -1,0 +1,5 @@
+import { defineTool } from 'eve/tools';
+import { z } from 'zod';
+import { ingestLinks } from '../../src/lib/ingest';
+import { saveResources } from '../../src/lib/db/workspace';
+export default defineTool({description:'Save a public source or user-provided text in the current user’s library. Optionally follow up to three included links concurrently, keeping separate linked resources. Use when the user asks to save/import a source.',inputSchema:z.object({url:z.string().url().optional(),text:z.string().max(200000).optional(),title:z.string().optional(),followLinks:z.boolean().optional()}),async execute(input,ctx){const user=ctx.session.auth.current?.principalId;if(!user)throw new Error('Unauthorized');if(!input.url&&!input.text)throw new Error('Provide a source URL or text');const result=await ingestLinks(input);await saveResources(user,result.resources);return {resources:result.resources.map(r=>({id:r.id,title:r.title,url:r.url,tags:r.tags,summary:r.summary.slice(0,1200),related:r.related,status:r.status})),warnings:result.warnings};}});

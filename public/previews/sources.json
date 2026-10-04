@@ -1,0 +1,11 @@
+{
+  "captured_at": "2026-10-04",
+  "method": "Screenshots of the original websites and original X video frame through the browser; no generated covers.",
+  "assets": [
+    {"file":"boardui.jpg","source":"https://www.boardui.com/","type":"website screenshot"},
+    {"file":"whistle.jpg","source":"https://cactuscompute.com/blog/whistle","type":"website screenshot"},
+    {"file":"needle.jpg","source":"https://cactuscompute.com/needle","type":"website screenshot"},
+    {"file":"phonon.jpg","source":"https://fermionresearch.com/models/phonon-2","type":"website screenshot"},
+    {"file":"neropursue-boardui-video.jpg","source":"https://x.com/neropursue/status/2106621042785685917","type":"original video frame","creator":"Nero (@neropursue)","stream":"https://video.twimg.com/amplify_video/2106620186891538434/pl/t5B8fYdsJSjnPIJw.m3u8?tag=29&variant_version=1"}
+  ]
+}

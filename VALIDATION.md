@@ -99,3 +99,11 @@ Final screenshot persistence check: authenticated agent searched the existing Wh
 - Eleven tests, typecheck and production build passed before the final batch-write change; final verification follows. Browser activity interrupted final screenshot/resize and delete-dialog visual checks.
 
 Final typecheck/build and batched thread-preservation transaction passed. Signed-out `/api/threads` returned 401. Deleted source markers are retained against stale-tab upserts.
+
+## Reference UI and assistant-ui — 2026-10-05
+
+- Integrated @assistant-ui/react external-store runtime with Eve; source chat uses Thread/Message/Composer primitives and the main composer uses the same runtime and input/send primitives. Neon state and Eve session ownership remain authoritative.
+- Safari verified restored source messages, Send through the source composer, main Send and Enter submission, and the floating thread menu with Open new tab, Rename, Pin, Group, and red Delete. Saved visual evidence: ../assistant-ui-verified.png.
+- Removed the inner native textarea frame, bounded composer input height, and hid inactive Stop controls. Source link controls keep compact subdued styling.
+- Unslop CLI was attempted in an isolated work checkout and failed at the Claude subprocess. No generated samples or automated comparison are claimed. A direct three-reference review and reusable profile are recorded in design/unslop.
+- Eleven tests and production build passed; final typecheck followed the keyboard-form correction.

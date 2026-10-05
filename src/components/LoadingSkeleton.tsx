@@ -1,0 +1,3 @@
+export function LoadingSkeleton({cards=false,count=6}:{cards?:boolean;count?:number}){
+ return <div role="status" aria-label={cards?'Loading resources':'Loading chats'} className={cards?'skeleton-grid':'skeleton-list'}><span className="sr-only">{cards?'Loading resources…':'Loading chats…'}</span>{Array.from({length:count},(_,i)=><div key={i} className={cards?'skeleton-card':'skeleton-row'}>{cards&&<div className="skeleton-cover skeleton"/>}<div className="skeleton-lines"><div className="skeleton" style={{width:`${75-i%3*12}%`}}/>{cards&&<><div className="skeleton"/><div className="skeleton" style={{width:'55%'}}/></>}</div></div>)}</div>
+}

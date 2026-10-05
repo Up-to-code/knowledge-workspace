@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react'
-export type IconName = 'cube' | 'panel' | 'search' | 'send' | 'bot' | 'code' | 'filter' | 'branch' | 'cloud' | 'chevron' | 'plus' | 'arrow' | 'mic' | 'external' | 'globe' | 'more' | 'close' | 'check' | 'folder' | 'clock' | 'menu' | 'attachment'
+export type IconName = 'trash' | 'cube' | 'panel' | 'search' | 'send' | 'bot' | 'code' | 'filter' | 'branch' | 'cloud' | 'chevron' | 'plus' | 'arrow' | 'mic' | 'external' | 'globe' | 'more' | 'close' | 'check' | 'folder' | 'clock' | 'menu' | 'attachment'
 export function Icon({ name, size = 16, className = '' }: { name: IconName; size?: number; className?: string }) {
   const paths: Record<IconName, ReactNode> = {
+    trash: <><path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14M10 11v6m4-6v6"/></>,
     cube: <><path fill="currentColor" stroke="none" d="m12 1.2 9.8 5.6v10.5L12 23l-9.8-5.7V6.8L12 1.2Zm0 2.4L4.4 8 12 12.4 19.6 8 12 3.6ZM4.3 10v6.1l6.6 3.8v-6.1L4.3 10Z"/><path stroke="none" fill="var(--sidebar)" d="m12 12.4 7.6-4.4-7.6-4.4-7.6 4.4z"/></>,
     panel: <><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M9 4v16"/></>,
     search: <><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></>,

@@ -114,3 +114,9 @@ Chat shows running/completed tool actions, persistent failures, retry and stop c
 Cloud refresh uses a pure resource merge. Autosave pauses during agent work, snapshots only changed resources before scheduling a request, and prevents old acknowledgements from replacing a newer cloud baseline. This preserves agent-attached screenshots while retaining unsaved local edits.
 
 Database upserts also retain the newest source screenshot when an older tab submits resource changes. Local edits merge with fresh cloud media instead of deleting it.
+
+## Thread index and split source chat
+
+Apply `drizzle/0001_thread_titles.sql` to an existing database before starting this version. The migration copies previous workspace threads into separate indexed rows without removing originals. Workspace loading returns at most 100 title/metadata records; `/api/threads` paginates titles and returns full messages only for a requested thread ID. All queries are scoped to the authenticated owner. Title-only sync updates preserve unloaded messages.
+
+The AI search command supports indexed thread-title search and opening an agent request. Source details provide a resizable source chat with authenticated source context, editable notes, and explicit delete confirmation. Source removal retains the database row. Thread deletion moves the thread to Trash and can be restored.

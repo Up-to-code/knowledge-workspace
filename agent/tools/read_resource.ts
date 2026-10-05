@@ -18,7 +18,7 @@ export default defineTool({
     const [row] = await getDb().select().from(resources).where(and(
       eq(resources.ownerId, ownerId), eq(resources.id, id),
     ));
-    if (!row) throw new Error('Resource not found');
+    if (!row||row.data.deleted) throw new Error('Resource not found');
     const text = resourceMarkdown(row.data);
     return {
       id, title: row.data.title, url: row.data.url, tags: row.data.tags,

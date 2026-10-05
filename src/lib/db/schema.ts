@@ -13,3 +13,5 @@ export const workspaces = pgTable('workspaces', {
 });
 
 export const agentSessions=pgTable('agent_sessions',{id:text('id').primaryKey(),ownerId:text('owner_id').notNull(),createdAt:timestamp('created_at',{withTimezone:true}).defaultNow().notNull()},t=>[index('agent_sessions_owner_idx').on(t.ownerId)]);
+
+export const threadRows=pgTable('threads',{ownerId:text('owner_id').notNull(),id:text('id').notNull(),title:text('title').notNull(),metadata:jsonb('metadata').$type<Record<string,unknown>>().notNull(),messages:jsonb('messages').$type<unknown[]>().default([]).notNull(),updatedAt:timestamp('updated_at',{withTimezone:true}).defaultNow().notNull()},t=>[primaryKey({columns:[t.ownerId,t.id]}),index('threads_owner_updated_idx').on(t.ownerId,t.updatedAt),index('threads_title_idx').using('gin',sql`to_tsvector('simple', ${t.title})`)]);

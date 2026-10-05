@@ -89,3 +89,13 @@ Final screenshot persistence check: authenticated agent searched the existing Wh
 - Added source-supported tag/Markdown-note organization tool. Markdown renders GFM tables, lists, code, links and HTTPS source images.
 - Source loading placeholders trigger a browser-rendered retry; Type Garden still yielded insufficient readable text and was rejected instead of saved as a new useful summary. Existing saved resource was retained.
 - Eleven tests and production build passed.
+
+## Indexed thread loading and source chat — 2026-10-05
+
+- Applied the additive thread-table migration to Neon. Thread messages now live separately from indexed title/metadata rows; initial workspace response includes at most 100 titles and no thread-message blob. The single-thread API loads messages on demand.
+- A rolled-back transaction verified that renaming an unloaded thread preserves its full messages. Thread sync batches writes rather than issuing one query per title.
+- Added AI search command and indexed database title lookup, conversation-loading skeleton, and pagination.
+- Safari verified the source chat opens beside Whistle and the agent reads attached context and returns a real source link. Agent source edits preserve original evidence. Delete confirmations are implemented for sources and threads. Sources retain database rows; thread Trash supports restore.
+- Eleven tests, typecheck and production build passed before the final batch-write change; final verification follows. Browser activity interrupted final screenshot/resize and delete-dialog visual checks.
+
+Final typecheck/build and batched thread-preservation transaction passed. Signed-out `/api/threads` returned 401. Deleted source markers are retained against stale-tab upserts.

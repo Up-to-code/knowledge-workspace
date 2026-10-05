@@ -1,0 +1,6 @@
+import { requireUser } from '@/lib/auth/server';
+import { getDb } from '@/lib/db';
+import { threadRows } from '@/lib/db/schema';
+import { and,eq,desc,sql } from 'drizzle-orm';
+import { failure } from '@/lib/http';
+export async function GET(request:Request){try{const user=await requireUser();const url=new URL(request.url);const id=url.searchParams.get('id');if(id){const [row]=await getDb().select().from(threadRows).where(and(eq(threadRows.ownerId,user.id),eq(threadRows.id,id)));if(!row)return Response.json({error:'Thread not found'},{status:404});return Response.json({...row.metadata,id:row.id,title:row.title,messages:row.messages,_loaded:true});}const offset=Math.max(0,Number(url.searchParams.get('offset'))||0);const q=(url.searchParams.get('q')||'').slice(0,300);const conditions=[eq(threadRows.ownerId,user.id)];if(q)conditions.push(sql`to_tsvector('simple',${threadRows.title}) @@ plainto_tsquery('simple',${q})`);const rows=await getDb().select({id:threadRows.id,title:threadRows.title,metadata:threadRows.metadata}).from(threadRows).where(and(...conditions)).orderBy(desc(threadRows.updatedAt)).limit(101).offset(offset);return Response.json({threads:rows.slice(0,100).map(r=>({...r.metadata,id:r.id,title:r.title,messages:[],_loaded:false})),hasMore:rows.length>100});}catch(e){return failure(e)}}

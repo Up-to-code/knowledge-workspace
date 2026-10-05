@@ -122,3 +122,7 @@ Apply `drizzle/0001_thread_titles.sql` to an existing database before starting t
 The AI search command supports indexed thread-title search and opening an agent request. Source details provide a resizable source chat with authenticated source context, editable notes, and explicit delete confirmation. Source removal retains the database row. Thread deletion moves the thread to Trash and can be restored.
 
 Agent UI uses assistant-ui's ExternalStoreRuntime adapter over the existing Eve stream. Source chat uses message and composer primitives; the main composer shares the adapter. See `design/unslop/analysis.md` and `design/unslop/skill.md` for the reference-specific UI review and its limitations.
+
+## Production
+
+The workspace is deployed in the Qentrah Vercel team at https://base.qentrah.com/app. The GitHub repository is connected for deployments from `main`. Production credentials are stored as sensitive Vercel environment variables. Neon Auth trusts `https://base.qentrah.com`; Cloudflare DNS points only the `base` subdomain at Vercel. `vercel.json` runs the Eve and Next.js production build. Local credentials, certificates, and work artifacts are excluded from uploads through `.vercelignore`.

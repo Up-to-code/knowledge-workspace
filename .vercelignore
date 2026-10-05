@@ -1,0 +1,6 @@
+work/
+certificates/
+.next-dev/
+.output/
+.eve/
+.env*

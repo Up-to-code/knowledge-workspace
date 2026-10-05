@@ -16,3 +16,4 @@ work/
 *.log
 
 .next-dev/
+.vercel

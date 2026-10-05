@@ -47,7 +47,11 @@ export function extractSource(html:string,url:string) {
 export async function readSource(url:string) {
  const result=await safeFetch(url);
  if(!/html|text|json/.test(result.contentType))throw new Error('Use file upload for this source type.');
- const source=/html/.test(result.contentType)?extractSource(result.text,result.url):{url:result.url,title:new URL(result.url).hostname,description:'',image:undefined as string|undefined,author:new URL(result.url).hostname,text:result.text.slice(0,60000),links:[...new Set(result.text.match(/https?:\/\/[^\s<>"']+/g)||[])].slice(0,40)};
+ let source=/html/.test(result.contentType)?extractSource(result.text,result.url):{url:result.url,title:new URL(result.url).hostname,description:'',image:undefined as string|undefined,author:new URL(result.url).hostname,text:result.text.slice(0,60000),links:[...new Set(result.text.match(/https?:\/\/[^\s<>"']+/g)||[])].slice(0,40)};
+ if(source.text.trim().length<150||/^(unpacking|loading|please wait)[.… ]*$/i.test(source.text.trim())){
+ if(process.env.ENABLE_SCREENSHOTS==='true'){const {readRenderedSource}=await import('./capture');const rendered=await readRenderedSource(source.url);source=extractSource(rendered.html,rendered.url);}
+ if(source.text.trim().length<150||/^(unpacking|loading|please wait)[.… ]*$/i.test(source.text.trim()))throw new Error('The page still shows a loading screen or too little readable content. Paste its text or upload a screenshot instead.');
+ }
  if(source.image){try{await publicTarget(source.image)}catch{source.image=undefined}}
  return source;
 }

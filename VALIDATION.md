@@ -80,3 +80,12 @@ Final typecheck passed after the sync/sign-out correction. Default `npm run dev`
 - Nine tests, TypeScript and production build passed. Free price filtering/provider-policy checks remain enforced. No new credential was read or logged.
 
 Final screenshot persistence check: authenticated agent searched the existing Whistle resource and captured its original page. Neon stored a 99,019-character image with screenshot provenance and capture timestamp. Safari displayed the actual source screenshot, and a full reload retained it. An atomic upsert transaction check verified that missing or older media cannot erase newer media. Evidence: ../agent-source-verified.png.
+
+## Composer, threads and resource responses — 2026-10-05
+
+- Model rows wrap with variable height; composer removes native text-area outline and bounds model label width.
+- Safari verified rename, custom group, reversible deletion and restoration on a new Research workspace thread.
+- Live agent search returned a Markdown heading, source link, and card displaying the saved original screenshot. Tool actions are collapsed by default.
+- Added source-supported tag/Markdown-note organization tool. Markdown renders GFM tables, lists, code, links and HTTPS source images.
+- Source loading placeholders trigger a browser-rendered retry; Type Garden still yielded insufficient readable text and was rejected instead of saved as a new useful summary. Existing saved resource was retained.
+- Eleven tests and production build passed.

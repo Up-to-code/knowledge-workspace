@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './MarketingLanding.module.css';
+import AIUpdates from './AIUpdates';
 import { MotionConfig, motion } from 'motion/react';
 import { Icon } from './Icon';
 
@@ -37,6 +38,7 @@ export default function MarketingLanding() {
       <div className="mx-auto flex h-full max-w-[1340px] items-center justify-between px-5">
         <Link href="/" aria-label="Knowledge home" className="flex items-center gap-[9px] text-[17px] font-semibold tracking-[-.5px]"><KnowledgeMark />KNOWLEDGE</Link>
         <nav aria-label="Main navigation" className="hidden items-center text-[14px] leading-[21px] lg:flex">
+          <a href="#updates" className="px-[15px] py-3 hover:text-[#b9b9b9]">AI updates</a>
           <a href="#sources" className="px-[15px] py-3 hover:text-[#b9b9b9]">Sources</a>
           <a href="#knowledge" className="px-[15px] py-3 hover:text-[#b9b9b9]">Knowledge</a>
           <a href="#workflow" className="px-[15px] py-3 hover:text-[#b9b9b9]">Agent workflow</a>
@@ -47,7 +49,7 @@ export default function MarketingLanding() {
           <button className="ml-1 flex h-8 w-8 items-center justify-center lg:hidden" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} aria-controls="landing-menu" onClick={() => setMenuOpen(!menuOpen)}><Icon name={menuOpen ? 'close' : 'menu'} size={20} /></button>
         </div>
       </div>
-      {menuOpen && <nav id="landing-menu" aria-label="Mobile navigation" className="border-b border-[#efefef]/10 bg-[#181818] px-5 pb-5 pt-2 lg:hidden">{[['Sources', '#sources'], ['Knowledge', '#knowledge'], ['Agent workflow', '#workflow'], ['Sign in', '/auth/sign-in']].map(([label, href]) => <a key={label} href={href} onClick={() => setMenuOpen(false)} className="block py-3">{label}</a>)}</nav>}
+      {menuOpen && <nav id="landing-menu" aria-label="Mobile navigation" className="border-b border-[#efefef]/10 bg-[#181818] px-5 pb-5 pt-2 lg:hidden">{[['AI updates', '#updates'], ['Sources', '#sources'], ['Knowledge', '#knowledge'], ['Agent workflow', '#workflow'], ['Sign in', '/auth/sign-in']].map(([label, href]) => <a key={label} href={href} onClick={() => setMenuOpen(false)} className="block py-3">{label}</a>)}</nav>}
     </header>
 
     <main id="main" className="pt-[56px] lg:pt-[52px]">
@@ -70,6 +72,8 @@ export default function MarketingLanding() {
         </div>
         <div className={styles.galleryNote}><p>Original sources, ready for your own notes.</p><Link href="/app">Build your library <span aria-hidden="true">→</span></Link></div>
       </section>
+
+      <AIUpdates/>
 
       {/* ============================================
           SOURCES — REAL CAPTURES, WITH PROVENANCE

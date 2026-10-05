@@ -43,3 +43,10 @@ test('hosted adapter sends a zero-price policy through the SDK',async t=>{
   assert.equal(result.text,'ok');assert.equal(requests,1);
  }finally{if(previousKey===undefined)delete process.env.OPENROUTER_API_KEY;else process.env.OPENROUTER_API_KEY=previousKey;}
 });
+
+test('article extraction preserves paragraph and code boundaries',()=>{
+ const source=extractSource('<main><div>Page chrome</div><article><h1>Setup</h1><p>First paragraph.</p><p>Second paragraph.</p><pre>install tool\nrun tool</pre></article></main>','https://example.com/setup');
+ assert.match(source.text,/Setup\n\nFirst paragraph\.\n\nSecond paragraph\./);
+ assert.match(source.text,/install tool\nrun tool/);
+ assert.doesNotMatch(source.text,/Page chrome/);
+});

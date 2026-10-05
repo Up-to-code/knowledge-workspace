@@ -5,7 +5,7 @@ export type Resource = {
   kind: ResourceKind; tags: string[]; cover: 'wave' | 'network' | 'phonon' | 'image' | 'post' | 'notes';
   media?: { kind: 'screenshot' | 'video' | 'image'; sourceUrl: string; caption: string; stream?: string; capturedAt?: string };
   author: string; status: 'Reviewed' | 'Draft' | 'Needs review'; saved: string;
-  editorial: string; sections: Section[]; related: string[]; starred: boolean; image?: string;
+  sourceLinks?: string[]; editorial: string; sections: Section[]; related: string[]; starred: boolean; image?: string;
 }
 export const starterResourceIds = new Set(['whistle', 'needle', 'phonon', 'image-workflow', 'link-workflow', 'voice-note', 'boardui', 'nero-boardui'])
 

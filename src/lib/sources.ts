@@ -39,7 +39,9 @@ export function extractSource(html:string,url:string) {
  const $=load(html); $('script,style,nav,footer,noscript,svg').remove();
  const absolute=(value:string|undefined)=>{if(!value)return undefined;try { const u=new URL(value||'',url);return ['http:','https:'].includes(u.protocol)?u.href:undefined;}catch{return undefined}};
  const links=[...new Set($('a[href]').map((_,el)=>absolute($(el).attr('href'))).get().filter(Boolean))].filter(link=>link!==url).slice(0,40);
- const text=($('main,article').first().text()||$('body').text()).replace(/\s+/g,' ').trim().slice(0,60000);
+ $('br').replaceWith('\n');
+ $('p,h1,h2,h3,h4,li,pre,blockquote,section,div').each((_,el)=>{$(el).prepend('\n\n').append('\n\n');});
+ const text=($('article').first().text()||$('main').first().text()||$('body').text()).replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').replace(/\n{3,}/g,'\n\n').trim().slice(0,60000);
  return {url,title:($('meta[property="og:title"]').attr('content')||$('title').text()||new URL(url).hostname).trim().slice(0,500),description:($('meta[name="description"]').attr('content')||$('meta[property="og:description"]').attr('content')||'').slice(0,2000),image:absolute($('meta[property="og:image"]').attr('content')),author:$('meta[name="author"]').attr('content')||new URL(url).hostname,text,links};
 }
 export async function readSource(url:string) {

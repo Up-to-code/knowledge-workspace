@@ -107,3 +107,6 @@ Final typecheck/build and batched thread-preservation transaction passed. Signed
 - Removed the inner native textarea frame, bounded composer input height, and hid inactive Stop controls. Source link controls keep compact subdued styling.
 - Unslop CLI was attempted in an isolated work checkout and failed at the Claude subprocess. No generated samples or automated comparison are claimed. A direct three-reference review and reusable profile are recorded in design/unslop.
 - Eleven tests and production build passed; final typecheck followed the keyboard-form correction.
+
+### System UI refinement — 2026-10-05
+Light theme uses #EFEFEF canvas/sidebar and black primary actions. Verified account menu, split Profile/Appearance/Models/Sources settings, compact search with loading state, and simplified model menu in Safari. Removed redundant AI search entry, pinned heading, technical status labels, and article/agent image embeds. User messages fit content up to 80% width. Agent instructions request readable Markdown and linked media. Existing confirmation modals remain in place for deletion. Typecheck, 11 tests, and production build pass. Proof: ../workspace-settings-verified.png and ../system-ui-models-verified.png. Refinement follows the documented manual unslop reference profile; automated unslop generation remains unavailable as recorded previously.

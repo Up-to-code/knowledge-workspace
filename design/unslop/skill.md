@@ -10,3 +10,10 @@
 - Keep keyboard navigation, visible focus, confirmation, loading states, and source attribution intact.
 
 Review limitation: generated unslop samples and automated before/after comparison were unavailable; this profile was written from the supplied references and implementation review.
+
+## Account and selector refinement
+- Use neutral #EFEFEF light surfaces with black primary actions; dark mode reverses the contrast.
+- Keep one search entry point and omit technical database and provider configuration labels from the working view.
+- Fit user messages to their content, capped at 80% of the conversation width.
+- Group settings in a split panel with Profile, Appearance, Models, and Sources sections.
+- Use media links within prose instead of embedded content images; retain source media in the library and files.

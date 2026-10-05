@@ -17,3 +17,7 @@ Review limitation: generated unslop samples and automated before/after compariso
 - Fit user messages to their content, capped at 80% of the conversation width.
 - Group settings in a split panel with Profile, Appearance, Models, and Sources sections.
 - Use media links within prose instead of embedded content images; retain source media in the library and files.
+- Avoid sharing generated output between the live development server and validation builds; stale CSS can invalidate visual checks.
+- Avoid chat group headings and inline group inputs in per-chat menus. Use a list-level filter and keep Rename keyboard driven.
+- Avoid full-width model lists. Use compact provider navigation with a separate results column.
+- Avoid explaining ingestion mechanics inside the resource form. Keep field labels and meaningful progress states.

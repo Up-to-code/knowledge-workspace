@@ -11,3 +11,6 @@ Method: direct review of the three screenshots supplied on this turn, plus the c
 | Resource source controls should read as ordinary tools | Reference 3 has subdued source and question buttons | Preserve compact controls, source URL, and original capture rather than promotional treatments |
 
 Reference set: 3 screenshots. Menu layout: 1 reference. Composer defect: 1 reference. Resource control layout: 1 reference. This is a targeted review, not a statistically representative model-default analysis.
+
+### Follow-up: four supplied screenshots
+The four cropped references show: one cramped chat list with three section headings, one sidebar with two unwanted navigation entries, one import dialog with two blocks of explanatory copy, and one source control card with a redundant label. The full-width settings screenshot also demonstrates a stale CSS output problem. Removed section headings and redundant copy, moved grouping into a filter, added explicit row padding, simplified cards, and isolated development output from production builds. This is a manual reference analysis, not an automated sample run.

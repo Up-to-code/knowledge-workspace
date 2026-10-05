@@ -14,3 +14,5 @@ certificates/
 work/
 .DS_Store
 *.log
+
+.next-dev/

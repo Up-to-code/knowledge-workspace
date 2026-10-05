@@ -1,0 +1,11 @@
+ .heroGallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:48px; }
+.preview { display:block; min-width:0; overflow:hidden; border:1px solid #ffffff1a; border-radius:10px; background:#181818; transition:border-color .2s; }
+.preview:hover { border-color:#ffffff50; }
+.previewImage { aspect-ratio:16/10; overflow:hidden; background:#111; }
+.previewImage img { display:block; width:100%; height:100%; object-fit:cover; object-position:top; }
+.previewCaption { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px; padding:16px; font-size:14px; }
+.previewCaption > span:last-child { display:flex; align-items:center; gap:8px; color:#969696; font-size:11px; }
+.galleryNote { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; margin-top:16px; color:#969696; font-size:13px; }
+.galleryNote a { color:#efefef; }
+@media(max-width:1000px) { .heroGallery {grid-template-columns:repeat(2,minmax(0,1fr));} .preview:last-child {display:none;} }
+@media(max-width:700px) { .heroGallery {grid-template-columns:1fr; margin-top:32px;} .preview:nth-child(2) {display:none;} .previewImage {aspect-ratio:16/9;} }

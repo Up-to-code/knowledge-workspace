@@ -126,3 +126,7 @@ Agent UI uses assistant-ui's ExternalStoreRuntime adapter over the existing Eve 
 ## Production
 
 The workspace is deployed in the Qentrah Vercel team at https://base.qentrah.com/app. The GitHub repository is connected for deployments from `main`. Production credentials are stored as sensitive Vercel environment variables. Neon Auth trusts `https://base.qentrah.com`; Cloudflare DNS points only the `base` subdomain at Vercel. `vercel.json` runs the Eve and Next.js production build. Local credentials, certificates, and work artifacts are excluded from uploads through `.vercelignore`.
+
+## License
+
+The project source code is available under the [MIT License](LICENSE). Third-party dependencies and original source images, screenshots, and thumbnails retain their respective licenses and copyrights.

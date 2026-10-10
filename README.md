@@ -1,5 +1,17 @@
 # Knowledge workspace
 
+[![Knowledge workspace — 30-second agent showcase](docs/media/video-cover.jpg)](docs/media/knowledge-workspace-30s.mp4)
+
+Save sources, search your knowledge, and draft with the original context.
+
+[Open the app](https://base.qentrah.com/app) · [Watch the 30-second video](docs/media/knowledge-workspace-30s.mp4) · [MIT License](LICENSE)
+
+The video shows real public product captures and the TypeScript behind the agent’s source-reading tool. A live agent conversation requires sign-in.
+
+![Knowledge workspace product screenshot](docs/media/product-screenshot.jpg)
+
+**Tags:** `AI` · `AIAgent` · `KnowledgeWorkspace` · `TypeScript` · `NextJS` · `BuildInPublic` · `Developer`
+
 A TypeScript Next.js App Router app with the compact Cursor-style library, threads, articles, keyboard shortcuts, and bottom composer. It includes Drizzle schema/migrations, Neon managed auth integration, and a Vercel Eve agent.
 
 ## Run

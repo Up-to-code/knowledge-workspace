@@ -142,3 +142,7 @@ The workspace is deployed in the Qentrah Vercel team at https://base.qentrah.com
 ## License
 
 The project source code is available under the [MIT License](LICENSE). Third-party dependencies and original source images, screenshots, and thumbnails retain their respective licenses and copyrights.
+
+## Project links
+
+[Source](https://github.com/qentrah/knowledge-workspace) · [Issues](https://github.com/qentrah/knowledge-workspace/issues) · [Public project directory](https://github.com/qentrah/.github/blob/main/profile/PROJECTS.md)
